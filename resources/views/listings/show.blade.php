@@ -11,9 +11,14 @@
 
                 <h3 class="text-2xl mb-2">{{ $listing->title }}</h3>
                 <div class="text-xl font-bold mb-4">{{ $listing->company }}</div>
+                <div class="text-lg mb-4">{{ $listing->category }}</div>
                 <x-listing-tags :tagsCsv="$listing->tags" />
                 <div class="text-lg my-4">
-                    <i class="fa-solid fa-location-dot"></i> {{ $listing->location }}
+                    <i class="fa-solid fa-file-contract"></i> {{ $listing->contract }}<br />
+                    <i class="fa-solid fa-clock"></i> {{ $listing->hours }} hours<br />
+                    <i class="fa-solid fa-euro-sign"></i> {{ $listing->min_salary }} - {{ $listing->max_salary }}<br />
+                    <i class="fa-solid fa-graduation-cap"></i> {{ $listing->education }}<br />
+                    <i class="fa-solid fa-location-dot"></i> {{ $listing->location }}<br />
                 </div>
                 <div class="border border-gray-200 w-full mb-6"></div>
                 <div>

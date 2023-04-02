@@ -23,6 +23,12 @@ class ListingFactory extends Factory
             'location' => fake()->city() . ', ' . fake()->stateAbbr(),
             'email' => fake()->companyEmail(),
             'website' => fake()->url(),
+            'contract' => 'Full Time',
+            'min_salary' => 3000,
+            'max_salary' => 5000,
+            'hours' => '33 till 40 hours',
+            'education' => "Master's Degree",
+            'category' => 'Other',
             'description' => fake()->paragraphs(3, true)
         ];
     }

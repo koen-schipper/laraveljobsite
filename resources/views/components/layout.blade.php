@@ -16,23 +16,133 @@
             theme: {
                 extend: {
                     colors: {
-                        laravel: "#ef3b2d",
+                        laravel: "#0072bc",
                     },
                 },
             },
         };
     </script>
-    <title>LaraJobs | Find Laravel Jobs & Projects</title>
+    <title>JobListings | Find Jobs & Projects</title>
+    <style>
+        input[type=range] {
+            height: 38px;
+            -webkit-appearance: none;
+            margin: 10px 0;
+            width: 100%;
+        }
+
+        input[type=range]:focus {
+            outline: none;
+        }
+
+        input[type=range]::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 10px;
+            cursor: pointer;
+            animate: 0.2s;
+            box-shadow: 1px 1px 1px #000000;
+            background: #1bb1e7;
+            border-radius: 5px;
+            border: 1px solid #000000;
+        }
+
+        input[type=range]::-webkit-slider-thumb {
+            box-shadow: 1px 1px 1px #000000;
+            border: 1px solid #000000;
+            height: 20px;
+            width: 15px;
+            border-radius: 5px;
+            background: #FFFFFF;
+            cursor: pointer;
+            -webkit-appearance: none;
+            margin-top: -6px;
+        }
+
+        input[type=range]:focus::-webkit-slider-runnable-track {
+            background: #1bb1e7;
+        }
+
+        input[type=range]::-moz-range-track {
+            width: 100%;
+            height: 10px;
+            cursor: pointer;
+            animate: 0.2s;
+            box-shadow: 1px 1px 1px #000000;
+            background: #1bb1e7;
+            border-radius: 5px;
+            border: 1px solid #000000;
+        }
+
+        input[type=range]::-moz-range-thumb {
+            box-shadow: 1px 1px 1px #000000;
+            border: 1px solid #000000;
+            height: 30px;
+            width: 15px;
+            border-radius: 5px;
+            background: #FFFFFF;
+            cursor: pointer;
+        }
+
+        input[type=range]::-ms-track {
+            width: 100%;
+            height: 10px;
+            cursor: pointer;
+            animate: 0.2s;
+            background: transparent;
+            border-color: transparent;
+            color: transparent;
+        }
+
+        input[type=range]::-ms-fill-lower {
+            background: #1bb1e7;
+            border: 1px solid #000000;
+            border-radius: 10px;
+            box-shadow: 1px 1px 1px #000000;
+        }
+
+        input[type=range]::-ms-fill-upper {
+            background: #1bb1e7;
+            border: 1px solid #000000;
+            border-radius: 10px;
+            box-shadow: 1px 1px 1px #000000;
+        }
+
+        input[type=range]::-ms-thumb {
+            margin-top: 1px;
+            box-shadow: 1px 1px 1px #000000;
+            border: 1px solid #000000;
+            height: 30px;
+            width: 15px;
+            border-radius: 5px;
+            background: #FFFFFF;
+            cursor: pointer;
+        }
+
+        input[type=range]:focus::-ms-fill-lower {
+            background: #1bb1e7;
+        }
+
+        input[type=range]:focus::-ms-fill-upper {
+            background: #1bb1e7;
+        }
+    </style>
 </head>
 
 <body class="mb-48">
     <nav class="flex justify-between items-center mb-4">
         <a href="/"><img class="w-24" src="{{ asset('images/logo.png') }}" alt="" class="logo" /></a>
         <ul class="flex space-x-6 mr-6 text-lg">
+            <li>
+                <a href='/openai/question' class="hover:text-laravel"><i class="fa-solid fa-question"></i> Ask a
+                    Question</a>
+            </li>
+            <li>
+                <a href='/posts' class="hover:text-laravel"><i class="fa-solid fa-pen"></i> Posts</a>
+            </li>
             @auth
                 <li>
                     <span class="font-bold uppercase">
-                        Welcom {{ auth()->user()->name }}
+                        Welcome {{ auth()->user()->name }}
                     </span>
                 </li>
                 <li>

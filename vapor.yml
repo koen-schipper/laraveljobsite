@@ -1,0 +1,13 @@
+id: 44883
+name: JobListings
+environments:
+  production:
+    database: joblistings
+    memory: 1024
+    cli-memory: 512
+    runtime: "php-8.2:al2"
+    build:
+      - "composer install --no-dev"
+      - "php artisan event:cache"
+    deploy:
+      - "php artisan migrate --force"

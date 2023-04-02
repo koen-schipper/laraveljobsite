@@ -11,7 +11,7 @@ class ListingController extends Controller
     public function index()
     {
         return view('listings.index', [
-            'listings' => Listing::latest()->filter(request(['tag', 'search']))->paginate(6)
+            'listings' => Listing::latest()->filter(request(['tag', 'search', 'contract', 'hours', 'min_salary', 'max_salary', 'education', 'category']))->paginate(6)
         ]);
     }
 
@@ -35,6 +35,12 @@ class ListingController extends Controller
             'location' => 'required',
             'email' => 'required|email',
             'website' => 'required|url',
+            'contract'  => 'required',
+            'min_salary' => 'required|numeric',
+            'max_salary' => 'required|numeric',
+            'hours' => 'required',
+            'education' => 'required',
+            'category' => 'required',
             'tags' => 'required',
             'description' => 'required',
         ]);
@@ -69,6 +75,12 @@ class ListingController extends Controller
             'location' => 'required',
             'email' => 'required|email',
             'website' => 'required|url',
+            'contract'  => 'required',
+            'min_salary' => 'required|numeric',
+            'max_salary' => 'required|numeric',
+            'hours' => 'required',
+            'education' => 'required',
+            'category' => 'required',
             'tags' => 'required',
             'description' => 'required',
         ]);

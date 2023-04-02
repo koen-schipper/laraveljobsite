@@ -9,18 +9,6 @@ class Listing extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'title',
-        'company',
-        'logo',
-        'location',
-        'email',
-        'website',
-        'tags',
-        'description',
-        'user_id'
-    ];
-
     public function scopeFilter($query, array $filters)
     {
         if ($filters['tag'] ?? false) {
@@ -32,6 +20,30 @@ class Listing extends Model
                 ->orWhere('description', 'like', '%' . $filters['search'] . '%')
                 ->orWhere('tags', 'like', '%' . $filters['search'] . '%')
                 ->orWhere('company', 'like', '%' . $filters['search'] . '%');
+        }
+
+        if ($filters['contract'] ?? false) {
+            $query->where('contract', $filters['contract']);
+        }
+
+        if ($filters['hours'] ?? false) {
+            $query->where('hours', $filters['hours']);
+        }
+
+        if ($filters['min_salary'] ?? false) {
+            $query->where('min_salary', '>=', $filters['min_salary']);
+        }
+
+        if ($filters['max_salary'] ?? false) {
+            $query->where('max_salary', '<=', $filters['max_salary']);
+        }
+
+        if ($filters['education'] ?? false) {
+            $query->where('education', $filters['education']);
+        }
+
+        if ($filters['category'] ?? false) {
+            $query->where('category', $filters['category']);
         }
     }
 
